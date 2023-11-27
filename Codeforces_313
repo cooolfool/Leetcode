@@ -1,0 +1,29 @@
+//https://codeforces.com/contest/313/problem/A
+
+
+
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int n;
+    cin>>n;
+    int t=n;
+    if(n<0)
+    {
+        int last=n%10;
+        n=n/10;
+        int slast=n%10;
+        
+        if(last<slast)
+        cout<<n;
+        else
+        {
+        n=n/10;
+        cout<<n*10+last;
+        }
+    }
+    else
+    cout<<n;
+    return 0;
+}
