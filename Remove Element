@@ -1,0 +1,31 @@
+//https://leetcode.com/problems/remove-element/description/?envType=study-plan-v2&envId=top-interview-150
+class Solution {
+    public int removeElement(int[] nums, int val) {
+        //Method 1, time complexity--> O(n), extra array used.
+        /* int count=0;
+         int i=0;
+         int j=0;
+         int[] res=new int[nums.length];
+         for(int value:nums){
+             if(value!=val){
+                 res[i]=value;
+                 i++;
+             }
+         }
+         for(int flag:res){
+             nums[j]=flag;
+             j++;
+         }
+         return i;*/
+//Method 2, time complexity --> O(n), no extra space for array used
+        int i=0;
+        for (int j=0;j<nums.length;j++){
+            if(nums[j]!=val){
+                nums[i]=nums[j];
+                i++;
+            }
+        }
+        return i;
+
+    }
+}
