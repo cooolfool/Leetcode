@@ -1,0 +1,40 @@
+//https://leetcode.com/problems/remove-duplicates-from-sorted-array-ii/description/?envType=study-plan-v2&envId=top-interview-150
+
+// class Solution {
+//     public int removeDuplicates(int[] nums) {
+//         int i=1;
+//         int count=1;
+//         for(int j=1;j<nums.length;j++){
+//             if(nums[j]==nums[j-1]){
+//                 if(count<2){
+//                 nums[i]=nums[j];
+//                 i++;
+//                 count++;
+//             }
+//             }
+//             else{
+//                 nums[i]=nums[j];
+//                 count=1;
+//                 i++;
+//             }
+//         }
+//         return i;
+//     }
+// }
+class Solution {
+    public int removeDuplicates(int[] nums) {
+        if(nums.length <= 2) {
+            return nums.length;
+        }
+
+        int i = 2; // Start from the third element
+        for(int j = 2; j < nums.length; j++) {
+            if(nums[j] != nums[i - 2]) {
+                nums[i] = nums[j];
+                i++;
+            }
+        }
+
+        return i;
+    }
+}
