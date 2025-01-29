@@ -1,0 +1,23 @@
+//https://leetcode.com/problems/h-index/description/?envType=study-plan-v2&envId=top-interview-150
+/*
+Given an array of integers citations where citations[i] is the number of citations a researcher received for their ith paper, return the researcher's h-index.
+
+According to the definition of h-index on Wikipedia: The h-index is defined as the maximum value of h such that the given researcher has published at least h papers that have each been cited at least h times.
+
+ */
+
+Approach --> Sort the array and traverse from last idex to first index, use a temporary variable starting from 1 and if the element at current index is greater than or equal to the current temp variable, increase temp by one for next iteration.
+The first condition which fails will give the current temp var reduse one from it and return that will be the H index
+class Solution {
+    public int hIndex(int[] nums) {
+        Arrays.sort(nums);  //Sort the Array as the current index can be modified
+        int len=nums.length;
+        int res=1;    // Temporary variable which will be increased 
+        for(int i= len-1;i>=0;i--){
+            if(nums[i]>=res)
+             res++;
+             else break;
+        }
+        return res-1;
+    }
+}
